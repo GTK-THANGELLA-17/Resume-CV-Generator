@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resume Generator</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<style>
+/* Global styles */
+body {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 12pt;
+    color: black;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 14pt;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Additional styles for specific elements */
+.side-heading {
+    font-weight: bold;
+}
+
+.icons {
+    margin-right: 5px;
+}
+
+.resume-section {
+    margin-bottom: 20px;
+}
+
+.resume-section h2 {
+    margin-top: 20px;
+}
+
+.resume-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.resume-section li {
+    margin-bottom: 10px;
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 800px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 900px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1000px;
+    }
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Resume Generator</h1>
+    <form id="resumeForm">
+        <!-- Your input fields here -->
+        <label for="title"><i class="fas fa-user icons"></i> Title for header:</label><br>
+        <input type="text" id="title" name="title" required><br>
+        
+        <label for="jobRole"><i class="fas fa-briefcase icons"></i> Job Role:</label><br>
+        <select id="jobRole" name="jobRole">
+            <option value="frontend">Frontend Developer</option>
+            <option value="backend">Backend Developer</option>
+            <option value="fullstack">Full Stack Developer</option>
+            <option value="software_engineer">Software Engineer</option>
+            <option value="data_scientist">Data Scientist</option>
+            <option value="ui_ux_designer">UI/UX Designer</option>
+            <option value="devops_engineer">DevOps Engineer</option>
+            <option value="security_analyst">Security Analyst</option>
+            <option value="cloud_architect">Cloud Architect</option>
+            <!-- Add more job roles as needed -->
+        </select><br>
+        
+        <div class="resume-section">
+            <h2>Personal Information</h2>
+            <label class="side-heading" for="name"><i class="fas fa-user icons"></i> Name:</label><br>
+            <input type="text" id="name" name="name" required><br>
+            
+            <label class="side-heading" for="phone"><i class="fas fa-phone-alt icons"></i> Phone:</label><br>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Format: 123-456-7890" required><br>
+            
+            <label class="side-heading" for="email"><i class="fas fa-envelope icons"></i> Email:</label><br>
+            <input type="email" id="email" name="email" required><br>
+            
+            <label class="side-heading" for="address"><i class="fas fa-map-marker-alt icons"></i> Address:</label><br>
+            <input type="text" id="address" name="address" required><br>
+        </div>
+        
+        <div class="resume-section">
+            <h2>Resume Details</h2>
+            <label class="side-heading" for="summary"><i class="fas fa-file-alt icons"></i> Resume Objective:</label><br>
+            <textarea id="summary" name="summary" rows="4" required></textarea><br>
+            
+            <label class="side-heading" for="skills"><i class="fas fa-cogs icons"></i> Technical Skills:</label><br>
+            <input type="text" id="skills" name="skills" required><br>
+            
+            <label class="side-heading" for="softSkills"><i class="fas fa-heart icons"></i> Soft Skills:</label><br>
+            <input type="text" id="softSkills" name="softSkills" required><br>
+            
+            <label class="side-heading" for="projects"><i class="fas fa-project-diagram icons"></i> Projects:</label><br>
+            <textarea id="projects" name="projects" rows="4" required></textarea><br>
+            
+            <label class="side-heading" for="websites"><i class="fas fa-link icons"></i> Websites:</label><br>
+            <input type="text" id="websites" name="websites" placeholder="Website URL"><br>
+        </div>
+        
+        <div class="resume-section">
+            <h2>Education</h2>
+            <label class="side-heading" for="education"><i class="fas fa-graduation-cap icons"></i> Education:</label><br>
+            <textarea id="education" name="education" rows="4" required></textarea><br>
+        </div>
+        
+        <div class="resume-section">
+            <h2>Languages</h2>
+            <label class="side-heading" for="languages"><i class="fas fa-language icons"></i> Languages:</label><br>
+            <input type="text" id="languages" name="languages" required><br>
+        </div>
+        
+        <div class="resume-section">
+            <h2>Additional Information</h2>
+            <label class="side-heading" for="hobbies"><i class="fas fa-gamepad icons"></i> Hobbies and Interests:</label><br>
+            <input type="text" id="hobbies" name="hobbies"><br>
+            
+            <label class="side-heading" for="disclaimer"><i class="fas fa-exclamation-triangle icons"></i> Disclaimer:</label><br>
+            <input type="text" id="disclaimer" name="disclaimer" required><br>
+            
+            <label class="side-heading" for="experience"><i class="fas fa-briefcase icons"></i> Experience:</label><br>
+            <textarea id="experience" name="experience" rows="4" required></textarea><br>
+        </div>
+        
+        <button type="button" id="previewBtn">Preview Resume</button>
+    </form>
+
+    <div id="resumePreview" style="display: none;">
+        <h2>Preview</h2>
+        <div id="previewContent"></div>
+        <button type="button" id="downloadPreviewBtn">Download Preview (Word)</button>
+        <button type="button" id="generatePageBtn">Generate Web Page</button>
+    </div>
+</div>
+<div class="footer">
+    <p>@2024 Designed And Developed By G.Thangella</p>
+</div>
+
+
+<script>
+document.getElementById('previewBtn').addEventListener('click', function() {
+    var formData = new FormData(document.getElementById('resumeForm'));
+
+    var previewContent = '';
+    var capitalizeFirstLetter = function(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    };
+    for (var pair of formData.entries()) {
+        var fieldName = capitalizeFirstLetter(pair[0].replace(/([A-Z])/g, ' $1').toLowerCase());
+        if (pair[0] === 'fb' || pair[0] === 'insta' || pair[0] === 'twitter' || pair[0] === 'linkedin' || pair[0] === 'github') {
+            previewContent += `<p><i class="fab fa-${pair[0]} icons"></i> <span class="side-heading">${fieldName}:</span> ${pair[1]}</p>`;
+        } else {
+            previewContent += `<p><i class="fas fa-${getIcon(pair[0])} icons"></i> <span class="side-heading">${fieldName}:</span> ${pair[1]}</p>`;
+        }
+    }
+    document.getElementById('previewContent').innerHTML = previewContent;
+    document.getElementById('resumePreview').style.display = 'block';
+});
+
+function getIcon(field) {
+    switch (field) {
+        case 'name':
+            return 'user';
+        case 'phone':
+            return 'phone-alt';
+        case 'email':
+            return 'envelope';
+        case 'address':
+            return 'map-marker-alt';
+        case 'summary':
+            return 'file-alt';
+        case 'skills':
+            return 'cogs';
+        case 'softSkills':
+            return 'heart';
+        case 'projects':
+            return 'project-diagram';
+        case 'websites':
+            return 'link';
+        case 'education':
+            return 'graduation-cap';
+        case 'languages':
+            return 'language';
+        case 'hobbies':
+            return 'gamepad';
+        case 'disclaimer':
+            return 'exclamation-triangle';
+        case 'experience':
+            return 'briefcase';
+        default:
+            return 'question-circle';
+    }
+}
+
+document.getElementById('downloadPreviewBtn').addEventListener('click', function() {
+    var formData = new FormData(document.getElementById('resumeForm'));
+
+    var htmlContent = '<html><head><style>.side-heading{font-weight:bold!important;}.links a{margin-right:10px;text-decoration:none;color:#333;}</style></head><body><div class="container">';
+    for (var pair of formData.entries()) {
+        htmlContent += `<p><span class="side-heading">${pair[0]}:</span> ${pair[1]}</p>`;
+    }
+    htmlContent += '</div></body></html>';
+
+    var blob = new Blob([htmlContent], { type: 'application/msword' });
+
+    var downloadLink = document.createElement('a');
+    downloadLink.download = 'resume.doc';
+    downloadLink.href = window.URL.createObjectURL(blob);
+
+    downloadLink.click();
+});
+
+document.getElementById('generatePageBtn').addEventListener('click', function() {
+    var formData = new FormData(document.getElementById('resumeForm'));
+
+    var htmlContent = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Generated Resume</title><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"><style>body{font-family:Arial, sans-serif;margin:0;padding:0;background-color:#f9f9f9;}.container{max-width:800px;margin:0 auto;padding:20px;background-color:#fff;box-shadow:0 0 10px rgba(0, 0, 0, 0.1);}h1{text-align:center;}h2{margin-top:20px;}.side-heading{font-weight:bold;}.links{margin-top:10px;}.links a{margin-right:10px;text-decoration:none;color:#333;}</style></head><body><div class="container"><h1>Generated Resume</h1><div id="previewContent">';
+    var capitalizeFirstLetter = function(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    };
+    for (var pair of formData.entries()) {
+        var fieldName = capitalizeFirstLetter(pair[0].replace(/([A-Z])/g, ' $1').toLowerCase());
+        if (pair[0] === 'fb' || pair[0] === 'insta' || pair[0] === 'twitter' || pair[0] === 'linkedin' || pair[0] === 'github') {
+            htmlContent += `<p><i class="fab fa-${pair[0]} icons"></i> <span class="side-heading">${fieldName}:</span> ${pair[1]}</p>`;
+        } else {
+            htmlContent += `<p><i class="fas fa-${getIcon(pair[0])} icons"></i> <span class="side-heading">${fieldName}:</span> ${pair[1]}</p>`;
+        }
+    }
+    htmlContent += '</div></div></body></html>';
+
+    var blob = new Blob([htmlContent], { type: 'text/html' });
+
+    var downloadLink = document.createElement('a');
+    downloadLink.download = 'resume.html';
+    downloadLink.href = window.URL.createObjectURL(blob);
+
+    downloadLink.click();
+});
+</script>
+</body>
+</html>
